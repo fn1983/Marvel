@@ -1,0 +1,47 @@
+name: Marvel
+options:
+  xcodeVersion: "10.2"
+  minimumXcodeGenVersion: "1.11.0"
+  createIntermediateGroups: true
+  bundleIdPrefix: com.test.marvelapp
+packages:
+  Moya:
+    url: https://github.com/Moya/Moya.git
+    version: 14.0.0
+  Kingfisher:
+    url: https://github.com/onevcat/Kingfisher.git
+    version: 6.3.1
+configs:
+    DEV_Debug: debug
+    DEV_Release: release
+settings:
+    base:
+        VERSIONING_SYSTEM: "apple-generic"
+        CURRENT_PROJECT_VERSION : "1"
+        SWIFT_VERSION: "5.0"
+        CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED: YES
+targets:
+    Marvel:
+        type: application
+        platform: iOS
+        deploymentTarget: "10.0"
+        sources: Marvel
+        settings:
+            configs:
+        scheme:
+            gatherCoverageData: true
+            testTargets:
+                - MarvelTests
+        dependencies:
+            - package: Moya
+            - package: Kingfisher
+    MarvelTests:
+        type: bundle.unit-test
+        platform: iOS
+        sources: MarvelTests
+        dependencies:
+            - target: Marvel
+        settings:
+            base:
+              PRODUCT_NAME: "MarvelTests"
+

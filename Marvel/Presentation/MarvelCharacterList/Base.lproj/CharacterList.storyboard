@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Character List View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="CharacterListViewController" id="BYZ-38-t0r" customClass="CharacterListViewController" customModule="Marvel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cav-hV-hM9">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="5FE-G9-M5t"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Rud-rL-gKZ"/>
+                                </connections>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" id="07s-g8-tMz">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7t4-l7-Spg">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An error occured. Please try later" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IrY-BK-S0d">
+                                        <rect key="frame" x="81.5" y="390.5" width="251" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfZ-9U-Am0">
+                                        <rect key="frame" x="188.5" y="411" width="37" height="30"/>
+                                        <state key="normal" title="Retry"/>
+                                        <connections>
+                                            <action selector="didTapOnRetry:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7IE-ey-yLv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="IrY-BK-S0d" firstAttribute="centerX" secondItem="7t4-l7-Spg" secondAttribute="centerX" id="3uV-Wx-TRn"/>
+                                    <constraint firstItem="IrY-BK-S0d" firstAttribute="centerY" secondItem="7t4-l7-Spg" secondAttribute="centerY" constant="-25" id="TGo-pO-VGV"/>
+                                    <constraint firstItem="dfZ-9U-Am0" firstAttribute="centerX" secondItem="7t4-l7-Spg" secondAttribute="centerX" id="tHx-lf-EP1"/>
+                                    <constraint firstItem="dfZ-9U-Am0" firstAttribute="centerY" secondItem="7t4-l7-Spg" secondAttribute="centerY" id="zgQ-jx-eGz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <constraints>
+                            <constraint firstItem="7t4-l7-Spg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8MP-G6-ixa"/>
+                            <constraint firstItem="7t4-l7-Spg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VTR-48-JIh"/>
+                            <constraint firstItem="07s-g8-tMz" firstAttribute="centerY" secondItem="Cav-hV-hM9" secondAttribute="centerY" id="Vvz-kg-SyL"/>
+                            <constraint firstAttribute="bottom" secondItem="Cav-hV-hM9" secondAttribute="bottom" id="cJx-Lj-7LR"/>
+                            <constraint firstItem="Cav-hV-hM9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="g5f-It-lVG"/>
+                            <constraint firstAttribute="trailing" secondItem="Cav-hV-hM9" secondAttribute="trailing" id="gVU-8K-G4l"/>
+                            <constraint firstItem="7t4-l7-Spg" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="mmA-nF-eFz"/>
+                            <constraint firstItem="07s-g8-tMz" firstAttribute="centerX" secondItem="Cav-hV-hM9" secondAttribute="centerX" id="s1f-YE-Cok"/>
+                            <constraint firstItem="Cav-hV-hM9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="shN-aS-drs"/>
+                            <constraint firstItem="7t4-l7-Spg" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="yrs-Tl-6fO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="07s-g8-tMz" id="N4s-iO-695"/>
+                        <outlet property="characterListTableView" destination="Cav-hV-hM9" id="JWk-ve-e7F"/>
+                        <outlet property="errorView" destination="7t4-l7-Spg" id="Feh-SJ-bRu"/>
+                        <outlet property="view" destination="8bC-Xf-vdC" id="JbE-NH-SoZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="107.8125"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
